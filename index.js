@@ -606,13 +606,30 @@
 
 // 3 - Arguments
 
-function sum() {
-    let total = 0;
-    for (let value of arguments) {
-        total += value;
-    }
-    return total;
+// function sum() {
+//     let total = 0;
+//     for (let value of arguments) {
+//         total += value;
+//     }
+//     return total;
+// }
+
+
+// console.log(sum(1,2,3,4,5));
+
+
+// 4 - The Rest Operator
+
+// When we pass a very number of arguments (the Rest '...args' operator) will put them in an array.
+
+// function sum(...args) {
+//     return args.reduce((a, b) => a + b);
+// }
+// console.log(sum(1,2,3,4,5));
+
+function sum(discount, ...prices) {
+    const total = prices.reduce((a, b) => a + b);
+    return total * (1 - discount);
 }
 
-
-console.log(sum(1,2,3,4,5));
+console.log(sum(0.1, 20, 30));
