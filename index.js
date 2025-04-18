@@ -620,16 +620,212 @@
 
 // 4 - The Rest Operator
 
-// When we pass a very number of arguments (the Rest '...args' operator) will put them in an array.
+// When we pass a vary number of arguments (the Rest '...args' operator) will put them in an array.
 
 // function sum(...args) {
 //     return args.reduce((a, b) => a + b);
 // }
 // console.log(sum(1,2,3,4,5));
 
-function sum(discount, ...prices) {
-    const total = prices.reduce((a, b) => a + b);
-    return total * (1 - discount);
-}
+// function sum(discount, ...prices) {
+//     const total = prices.reduce((a, b) => a + b);
+//     return total * (1 - discount);
+// }
 
-console.log(sum(0.1, 20, 30));
+// console.log(sum(0.1, 20, 30));
+
+
+// 5 - Default Parameters
+
+// function interest(principal, rate, years) {
+//     rate = rate || 3.5;
+
+//     return principal * rate / 100 * years;
+// }
+
+// console.log(interest(10000, 0, 5));
+
+
+
+// 6 - Getters and Setters
+
+// const person = {
+//     firstName: 'Aleksandar',
+//     lastName: 'Yanev',
+//     get fullName() {
+//         return `${person.firstName} ${person.lastName}`
+//     },
+//     set fullName(value) {
+//         const parts = value.split(' ');
+//         this.firstName = parts[0];
+//         this.lastName = parts[1];
+//     }
+// };
+
+// // person.fullName = 'Evtim Borisov';
+
+// console.log(person);
+
+
+// 7 - Try and Catch
+
+// const person = {
+//     firstName: 'Aleksandar',
+//     lastName: 'Yanev',
+//     set fullName(value) {
+//         if (typeof value !== 'string') {
+//             throw new Error('Value is not a string.');
+//         }
+//         const parts = value.split(' ');
+//         if (parts.length !== 2) {
+//             throw new Error('Enter a first and last name.');
+//         }
+//         this.firstName = parts[0];
+//         this.lastName = parts[1];
+//     }
+// };
+
+// try {
+//     person.fullName = '11 22';
+// }
+// catch (e) {
+//     alert(e);
+// }
+// // person.fullName = 'Evtim Borisov';
+
+// console.log(person);
+
+
+
+// 8 Local vs Global Scope
+
+
+// function start() {
+//     for (var i = 0; i < 5; i++) {
+//         console.log(i);
+//     }
+//     console.log(i);
+// }
+
+// // var => function-scoped
+// // ES6 (ES2015): let, const => block-scoped
+
+// start();
+
+
+// var color = 'red';
+// let age = 30;
+
+// // window.color
+
+// function sayHi() {
+//     console.log('hi');
+// }
+
+// // windows.sayHi()
+
+
+
+// 10 - The this Keyword
+
+//this
+// method (function inside of an object) -> obj
+
+// const video = {
+//     title: 'a',
+//     play() {
+//         console.log(this);
+//     }
+// };
+
+// video.stop = function () {
+//     console.log(this);
+// };
+
+// video.stop();
+
+// function (outside of an object) -> global (window, global)
+
+
+// const video = {
+//     title: 'a',
+//     play() {
+//         console.log(this);
+//     }
+// };
+
+// video.stop();
+
+
+// function Video(title) {
+//     this.title = title;
+//     console.log(this);
+// }
+
+// const v = new Video('b'); // {}
+
+// another example
+
+// const video = {
+//     title: 'a',
+//     tags: ['a', 'b', 'c'],
+//     showTags() {
+//         this.tags.forEach(function (tag) {
+//             console.log(tag);
+//         });
+//     }
+// };
+
+// video.showTags();
+
+// 12 - Exercise 1 - Sum Of Arguments
+
+// function sum(...nums) {
+//     return nums.reduce((a, b) => a + b);
+// }
+
+// console.log(sum(1, 2, 3, 4, 5));
+
+// function sumArray(...items) {
+//     if (items.length === 1 && Array.isArray(items[0])) {
+//         items = [...items[0]];
+//     }
+
+//     return items.reduce((a, b) => a + b);
+// }
+
+// console.log(sumArray([1, 2, 3, 4]));
+
+
+// 13 Exercise 2 - Area of Circle
+
+// const circle = {
+//     radius: 1,
+//     get area() {
+//         return Math.PI * this.radius * this.radius;
+//     }
+// };
+
+// console.log(circle.area);
+
+// 14 - Exercise 3 - Error Handling
+
+// function countOccurrences(array, searchElement) {
+//     if (!Array.isArray(array)) {
+//         throw new Error('The first argument must be an array');
+//     }
+//     return array.reduce((accumulator, current) => {
+//         const occerrence = (current === searchElement) ? 1 : 0;
+//         return accumulator + occerrence;
+//     }, 0);
+// }
+
+// const numbers = [1, 2, 3, 4, 3, 3, 5, 3];
+// const n = true;
+// try {
+//     const count = countOccurrences(numbers, 3);
+//     console.log(count);
+// }
+// catch (e) {
+//     alert(e);
+// }
