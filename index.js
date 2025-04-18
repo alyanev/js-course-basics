@@ -561,21 +561,58 @@
 // console.log(sorting(people));
 //Имаш масив от числа. Напиши функция, която сортира числата по произведението на цифрите им. Например, за числото 234, произведението на цифрите е 2 * 3 * 4 = 24. Сортирай числата по този начин.
 
-let numbers = [23, 45, 12, 56, 11];
+// let numbers = [23, 45, 12, 56, 11];
 
-function sorting(array) {
-    // Създаваме масив от обекти с числата и произведението на цифрите им
-    let productArray = array.map(element => {
-        let digits = element.toString().split('').map(Number);  // Разделяме числото на цифри
-        let product = digits.reduce((a, b) => a * b, 1);  // Изчисляваме произведението
-        return { number: element, product: product };  // Връщаме обект с числото и произведението му
-    });
+// function sorting(array) {
+//     // Създаваме масив от обекти с числата и произведението на цифрите им
+//     let productArray = array.map(element => {
+//         let digits = element.toString().split('').map(Number);  // Разделяме числото на цифри
+//         let product = digits.reduce((a, b) => a * b, 1);  // Изчисляваме произведението
+//         return { number: element, product: product };  // Връщаме обект с числото и произведението му
+//     });
 
-    // Сортираме по произведението на цифрите
-    productArray.sort((a, b) => a.product - b.product);
+//     // Сортираме по произведението на цифрите
+//     productArray.sort((a, b) => a.product - b.product);
 
-    // Връщаме масив с числата, сортирани по произведението
-    return productArray.map(item => item.number);
+//     // Връщаме масив с числата, сортирани по произведението
+//     return productArray.map(item => item.number);
+// }
+
+// console.log(sorting(numbers));  // Очакван резултат: [12, 23, 45, 11, 56]
+
+
+
+// Functions
+
+
+// 1 - Function Decalrations vs Expressions
+
+
+// // Function Declaration
+// function walk() {
+//     console.log('walks');
+// }
+
+// // Anonymous Function Expression
+// const run = function() {
+//     console.log('run');
+// };
+
+
+// 2 - Hoisting
+
+// JS enginge moves all function declarations at the top before execute the code.
+
+
+// 3 - Arguments
+
+function sum() {
+    let total = 0;
+    for (let value of arguments) {
+        total += value;
+    }
+    return total;
 }
 
-console.log(sorting(numbers));  // Очакван резултат: [12, 23, 45, 11, 56]
+
+console.log(sum(1,2,3,4,5));
