@@ -810,22 +810,22 @@
 
 // 14 - Exercise 3 - Error Handling
 
-// function countOccurrences(array, searchElement) {
-//     if (!Array.isArray(array)) {
-//         throw new Error('The first argument must be an array');
-//     }
-//     return array.reduce((accumulator, current) => {
-//         const occerrence = (current === searchElement) ? 1 : 0;
-//         return accumulator + occerrence;
-//     }, 0);
-// }
+function countOccurrences(array, searchElement) {
+    if (!Array.isArray(array)) {
+        throw new Error('The first argument must be an array');
+    }
+    return array.reduce((accumulator, current) => {
+        const occerrence = (current === searchElement) ? 1 : 0;
+        return accumulator + occerrence;
+    }, 0);
+}
 
-// const numbers = [1, 2, 3, 4, 3, 3, 5, 3];
-// const n = true;
-// try {
-//     const count = countOccurrences(numbers, 3);
-//     console.log(count);
-// }
-// catch (e) {
-//     alert(e);
-// }
+const numbers = [1, 2, 3, 4, 3, 3, 5, 3];
+const n = true;
+try {
+    const count = countOccurrences(numbers, 3);
+    console.log(count);
+}
+catch (e) {
+    alert(e);
+}
