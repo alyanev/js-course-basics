@@ -620,7 +620,7 @@
 
 // 4 - The Rest Operator
 
-// When we pass a very number of arguments (the Rest '...args' operator) will put them in an array.
+// When we pass a vary number of arguments (the Rest '...args' operator) will put them in an array.
 
 // function sum(...args) {
 //     return args.reduce((a, b) => a + b);
@@ -631,5 +631,3 @@
 //     const total = prices.reduce((a, b) => a + b);
 //     return total * (1 - discount);
 // }
-
-// console.log(sum(0.1, 20, 30));
